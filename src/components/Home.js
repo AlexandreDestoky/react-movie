@@ -9,6 +9,7 @@ import Grid from "./Grid/Grid";
 import Thumbnail from "./Thumbnail/Thumbnail";
 import Spinner from "./Spinner/Spinner";
 import SearchBar from "./SearchBar/SearchBar";
+import Button from "./Button/Button";
 
 export default function Home() {
   const { state, loading, error, setSearchTerm ,searchTerm} = useHomeFetch();
@@ -32,7 +33,10 @@ export default function Home() {
           />
         ))}
       </Grid>
-      <Spinner />
+      {loading && <Spinner />}
+      {state.page < state.total_pages && !loading && (
+        <Button text="Load More"/>
+      )}
     </>
   );
 }
