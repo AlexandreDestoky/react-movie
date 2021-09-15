@@ -1,10 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useHomeFetch } from "../hooks/useHomeFetch";
+
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
+
 import NoImage from "../images/no_image.jpg";
 import HeroImage from "./HeroImage/HeroImage";
 import Grid from "./Grid/Grid";
+import Thumbnail from "./Thumbnail/Thumbnail";
 
 export default function Home() {
   const { state, loading, error } = useHomeFetch();
@@ -17,9 +20,14 @@ export default function Home() {
           text={state.results[0].overview}
         />
       ) : null}
-      <Grid header='Popular Movies'>
+      <Grid header="Popular Movies">
         {state.results.map(movie => (
-          <div key={movie.id}>{movie.title}</div>
+          <Thumbnail
+            key={movie.id}
+            clickable
+            image={movie.poster_path ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path : NoImage}
+            movieId={movie.id}
+          />
         ))}
       </Grid>
     </>
