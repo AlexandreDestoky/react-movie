@@ -6,9 +6,9 @@ export const calcTime = time => {
 };
 // Convert a number to money formatting
 export const convertMoney = money => {
-  const formatter = new Intl.NumberFormat('en-US', {
+  const formatter = new Intl.NumberFormat('fr-BE', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'EUR',
     minimumFractionDigits: 0,
   });
   return formatter.format(money);

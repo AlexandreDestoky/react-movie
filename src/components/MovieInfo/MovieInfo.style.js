@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../config';
+import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
 
 export const Wrapper = styled.div`
   background: ${({ backdrop }) =>
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   padding: 40px 20px;
   animation: animateMovieInfo 1s;
 
-  @keyframes {
+  @keyframes animateMovieInfo {
     from {
       opacity: 0;
     }
