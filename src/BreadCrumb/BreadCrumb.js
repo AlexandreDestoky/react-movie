@@ -1,9 +1,19 @@
 import React from 'react'
 
-export default function BreadCrumb() {
+import { Link } from 'react-router-dom';
+// Styles
+import { Wrapper, Content } from './BreadCrumb.style';
+
+export default function BreadCrumb({movieTitle}) {
   return (
-    <div>
-      
-    </div>
+    <Wrapper>
+    <Content>
+      <Link to='/'>
+        <span>Home</span>
+      </Link>
+      <span>|</span>
+      <span>{movieTitle}</span>
+    </Content>
+  </Wrapper>
   )
 }
